@@ -7,6 +7,7 @@ import javax.persistence.Id;
 public class Customer {
 
     @Id
+    private Integer idCustomer;
     private Enum salutation;
     private String firstName;
     private String lastName;
@@ -16,9 +17,7 @@ public class Customer {
     private String addressAddition;
 
 
-    public Enum getSalutation() {
-        return salutation;
-    }
+    public void setIdCustomer(Integer idCustomer) { this.idCustomer = idCustomer; }
 
     public void setSalutation(Enum salutation) {
         this.salutation = salutation;
@@ -46,6 +45,12 @@ public class Customer {
 
     public void setAddressAddition(String addressAddition) {
         this.addressAddition = addressAddition;
+    }
+
+    public Integer getIdCustomer() { return idCustomer; }
+
+    public Enum getSalutation() {
+        return salutation;
     }
 
     public String getFirstName() {

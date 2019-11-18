@@ -7,14 +7,17 @@ import javax.persistence.Id;
 public class Communication {
 
     @Id
+    private int idCommunication;
     private Enum typ;
     private String name;
     private String input;
     private Enum sort;
 
-    public Enum getTyp() {
-        return typ;
-    }
+    public int getIdCommunication() { return idCommunication; }
+
+    public void setIdCommunication(int idCommunication) { this.idCommunication = idCommunication; }
+
+    public Enum getTyp() { return typ; }
 
     public void setTyp(Enum typ) {
         this.typ = typ;

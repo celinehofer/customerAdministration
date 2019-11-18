@@ -1,62 +1,62 @@
 package controllers;
 
-import entities.Address;
+import entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import service.CustomerService;
 import java.util.List;
 
 @Controller
 public class CustomerController {
-
     @Autowired
-    AddressService service; /*Der Controller verwendet den Service*/
+    CustomerService service;
 
-    @RequestMapping("/showCreate") /*somit weiss er was machen, wenn diese URL kommt. Unter applicationproperties sind der prefix udn suffix drin, so weiss er was er hinten dran fügen muss.*/
-    public String showCreate() { return "createAddress";
+    @RequestMapping("/showCreate")
+    public String showCreate() { return "createCustomer";
     }
 
-    @RequestMapping("/saveLoc") /*steht in der action im form, wann diese Funktion aufgerufen werden soll*/
-    public String saveAddress(@ModelAttribute("address") Address address, ModelMap modelMap) { /*Mapping zwischen Objekt und Daten -> @ModelAttribut("Location"), objekt wird in location reingespeichert. Mit ModelMap sagt man spring, dass er was/Antwort zurückgeben soll*/
-        Address addressSaved = service.saveAddress(address);
-        String msg = "Location saved with id: " + addressSaved.getId();
+    @RequestMapping("/saveLoc")
+    public String saveCustomer(@ModelAttribute("customer") Customer customer, ModelMap modelMap) {
+        Customer customerSaved = service.saveCustomer(customer);
+        String msg = "Customer saved with id: " + customerSaved.getIdCustomer();
         modelMap.addAttribute("msg", msg);
-        return "createAddress";
+        return "createCustomer";
     }
 
-    @RequestMapping("/deleteAddress")
-    public String deleteAddress(@RequestParam("id") int id, ModelMap modelMap) {
-        Address address = new Address();
-        address.setId(id);
-        service.deleteAddress(address);
-        List<Address> address = service.getAllAddresses();
-        modelMap.addAttribute("address", address);
-        return "displayAddress";
+    @RequestMapping("/deleteCustomer")
+    public String deleteCustomer(@RequestParam("id") int id, ModelMap modelMap) {
+        Customer customer = new Customer();
+        customer.setIdCustomer(id);
+        service.deleteCustomer(customer);
+        List<Customer> customers = service.getAllCustomers();
+        modelMap.addAttribute("customers", customers);
+        return "displayCustomers";
     }
 
     @RequestMapping("/showUpdate")
     public String showUpdate(@RequestParam("id") int id, ModelMap modelMap) {
-        Address address = service.getAddressById(id);
-        modelMap.addAttribute("address", address);
-        return "updateAddress";
+        Customer customer = service.getCustomerById(id);
+        modelMap.addAttribute("customer", customer);
+        return "updateCustomer";
     }
 
-    @RequestMapping("/updateAddress")
-    public String updateAddress(@ModelAttribute("address") Address address, ModelMap modelMap) {
-        service.updateAddress(address);
-        List<Address> address = service.getAllAddresses();
-        modelMap.addAttribute("address", address);
-        return "displayAddress";
+    @RequestMapping("/updateCustomer")
+    public String updateCustomer(@ModelAttribute("customer") Customer customer, ModelMap modelMap) {
+        service.updateCustomer(customer);
+        List<Customer> customers = service.getAllCustomers();
+        modelMap.addAttribute("customers", customers);
+        return "displayCustomers";
     }
 
-    @RequestMapping("/displayAddress")
-    public String displaoyAddress(ModelMap modelMap) {
-        List<Address> address = service.getAllAddresses();
-        modelMap.addAttribute("address", address);
-        return "displayAddress";
+    @RequestMapping("/displayCustomers")
+    public String displayCustomers(ModelMap modelMap) {
+        List<Customer> customers = service.getAllCustomers();
+        modelMap.addAttribute("customers", customers);
+        return "displayCustomers";
     }
+
 }

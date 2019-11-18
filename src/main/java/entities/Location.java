@@ -4,12 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Address {
+public class Location {
 
     @Id
+    private int idLocation;
     private String postalCode;
     private String city;
     private String country;
+
+    public int getIdLocation() { return idLocation; }
+
+    public void setIdLocation(int idLocation) { this.idLocation = idLocation; }
 
     public String getPostalCode() {
         return postalCode;
