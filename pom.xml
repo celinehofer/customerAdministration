@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>customerAdministration</groupId>
+    <groupId>ch.customer.administration</groupId>
     <artifactId>customerAdministration</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -58,6 +58,11 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.0.19</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
