@@ -17,19 +17,19 @@
 <table>
     <tr>
         <th>id</th>
-        <th>code</th>
-        <th>name</th>
-        <th>type</th>
+        <th>postalCode</th>
+        <th>city</th>
+        <th>country</th>
     </tr>
 
     <c:forEach items="${locations}" var="location">
         <tr>
-            <td>${location.id} |</td>
-            <td>${location.code} |</td>
-            <td>${location.name} |</td>
-            <td>${location.type} |</td>
-            <td><a href="showUpdate?id=${location.id}">update |</a></td>
-            <td><a href="deleteLocations?id=${location.id}">delete</a></td>
+            <td>${location.idLocation} |</td>
+            <td>${location.postalCode} |</td>
+            <td>${location.city} |</td>
+            <td>${location.country} |</td>
+            <td><a href="showUpdate?id=${location.idLocation}">update |</a></td>
+            <td><a href="deleteLocations?id=${location.idLocation}">delete</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -14,11 +14,10 @@
 
 <form action="saveLoc" method="post">
     <pre>
-        Id: <input type="text" name="id" value="${location.id}" readonly/>
-        Code: <input type="text" name="code" value="${location.code}"/>
-        Name: <input type="text" name="name" value="${location.name}"/>
-        Type: Urban <input type="radio" name="type" value="URBAN" ${location.type=='URBAN'?'checked':''}/>
-              Rural <input type="radio" name="type" value="RURAL" ${location.type=='RURAL'?'checked':''}/>
+        Id: <input type="text" name="idLocation" value="${location.idLocation}" readonly/>
+        PLZ: <input type="text" name="postalCode" value="${location.postalCode}"/>
+        Ort: <input type="text" name="city" value="${location.city}"/>
+        Land: <input type="text" name="country" value="${location.country}"/>
         <input type="submit" value="save"/>
     </pre>
 </form>
